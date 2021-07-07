@@ -11,6 +11,7 @@ import { Background } from '../../components/Background';
 import { CategorySelect } from '../../components/CategorySelect';
 import { Header } from '../../components/Header';
 import { GuildIcon } from '../../components/GuildIcon';
+import { SmallInput } from '../../components/SmallInput';
 
 import { theme } from '../../global/styles/theme';
 import { styles } from './styles';
@@ -24,7 +25,14 @@ export function AppointmentCreate(){
         title="Agendar partida"
       />
 
-      <Text style={styles.label}>
+      <Text style={
+        [styles.label,
+        {
+          marginLeft: 24,
+          marginTop: 36,
+          marginBottom: 18
+        }]
+      }>
         Categoria
       </Text>
 
@@ -55,6 +63,40 @@ export function AppointmentCreate(){
             />
           </View>
         </RectButton>
+
+        <View style={styles.field}>
+          <View>
+            <Text style={styles.label}>
+              Dia e mês
+            </Text>
+
+            <View style={styles.column}>
+              <SmallInput maxLength={2} />
+
+              <Text style={styles.divider}>
+                /
+              </Text>
+              
+              <SmallInput maxLength={2} />
+            </View>
+          </View>
+
+          <View>
+            <Text style={styles.label}>
+              Hora e minuto
+            </Text>
+
+            <View style={styles.column}>
+              <SmallInput maxLength={2} />
+
+              <Text style={styles.divider}>
+                :
+              </Text>
+              
+              <SmallInput maxLength={2} />
+            </View>
+          </View>
+        </View>
       </View>
     </Background>
   );
