@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Feather } from '@expo/vector-icons';
 import { RectButton } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
 import {
   Text,
@@ -23,6 +24,12 @@ import { styles } from './styles';
 
 export function AppointmentCreate(){
   const [category, setCategory] = useState('');
+
+  const navigation = useNavigation();
+
+  function handleGuilds() {
+      navigation.navigate('Guilds');
+  }
 
   return (
     <KeyboardAvoidingView
@@ -53,7 +60,7 @@ export function AppointmentCreate(){
           />
 
           <View style={styles.form}>
-            <RectButton>
+            <RectButton onPress={handleGuilds}>
               <View style={styles.select}>
                 {
                   /*<View style={styles.image} />*/
