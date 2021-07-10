@@ -7,7 +7,6 @@ import { SignIn } from '../screens/SingnIn';
 import { Home } from '../screens/Home';
 import { AppointmentDetails } from '../screens/AppointmentDetails';
 import { AppointmentCreate } from '../screens/AppointmentCreate';
-import { Guilds } from '../screens/Guilds';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -36,10 +35,6 @@ export function AuthRoutes() {
             <Screen
                 name="AppointmentCreate"
                 component={AppointmentCreate}
-            />
-            <Screen
-                name="Guilds"
-                component={Guilds}
             />
         </Navigator>
     );

@@ -44,13 +44,13 @@ export function Guild({data, ...rest}: Props){
                         {data.owner ? 'Administrador' : 'Convidado'}
                     </Text>
                 </View>
-
-                <Feather
-                    name='chevron-right'
-                    color={theme.colors.heading}
-                    size={24}
-                />                    
             </View>
+
+            <Feather
+                name='chevron-right'
+                color={theme.colors.heading}
+                size={24}
+            />
         </TouchableOpacity>
     );
 }
