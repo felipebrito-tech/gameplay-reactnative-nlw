@@ -27,8 +27,8 @@ export function Home() {
         categoryId === category ? setCategory('') : setCategory(categoryId);
     }
 
-    function handleAppointmentDetails() {
-        navigation.navigate('AppointmentDetails');
+    function handleAppointmentDetails(guildSelected: AppointmentProps) {
+        navigation.navigate('AppointmentDetails', {guildSelected});
     }
 
     function handleAppointmentCreate() {
@@ -38,7 +38,7 @@ export function Home() {
     async function loadAppointments() {
         const response = await AsyncStorage.getItem(COLLECTION_APPOINTMENTS);
         const storage: AppointmentProps[] = response ? JSON.parse(response) : [];
-console.log(storage);
+
         if (category)
             setAppointments(storage.filter(item => item.category === category));
         else
@@ -78,7 +78,7 @@ console.log(storage);
                         renderItem={({ item }) => (
                             <Appointment
                                 data={item}
-                                onPress={handleAppointmentDetails}
+                                onPress={() => handleAppointmentDetails(item)}
                             />
                         )}
                         ItemSeparatorComponent={() => <ListDivider />}
